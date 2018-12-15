@@ -22,12 +22,16 @@ body {
   cursor: pointer;
 }
 
-.button-primary {
+.button--primary {
   background: #368F8B;
   color: #eee;
 }
 
-.button-primary:hover {
+.button--primary:hover {
   background: #246A73;
   color: #eee;
+}
+
+.button--disabled {
+  cursor: not-allowed;
 }

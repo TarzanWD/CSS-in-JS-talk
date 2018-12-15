@@ -8,6 +8,10 @@
   padding: 1rem;
 }
 
+.todo--done {
+  color: red;
+}
+
 .todo:first-child {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;

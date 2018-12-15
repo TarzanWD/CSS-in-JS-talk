@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import classNames from 'classnames'
 import './AddTodo.css'
 
 export default ({ addTodo, closeAside }) => {
@@ -17,7 +18,12 @@ export default ({ addTodo, closeAside }) => {
       <div className="add-todo__input-group">
         <button
           type="button"
-          className="button button-primary"
+          className={classNames({
+            'button': true,
+            'button--primary': true,
+            'button--disabled': text.length === 0
+          })}
+          disabled={text.length === 0}
           onClick={() => addTodo(text)}
         >
           Připnout

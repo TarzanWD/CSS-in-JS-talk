@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { assocPath } from 'ramda'
 
 import Todo from './Todo'
 import AddTodo from './AddTodo'
@@ -9,23 +10,26 @@ export default () => {
     {
       id: 0,
       text: 'Im a Todo',
+      done: false,
     },
     {
       id: 1,
       text: 'Im a Todo 2',
+      done: false,
     },
     {
       id: 2,
       text: 'Im a Todo 3',
+      done: false
     }
   ])
 
   const [isAsideShown, setIsAsideShown] = useState(false);
 
   const setDone = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id)
+    const index = todos.findIndex(todo => todo.id === id)
 
-    setTodos(newTodos)
+    setTodos(assocPath([index, 'done'], true, todos))
   }
 
   const addTodo = (text) => {
@@ -34,6 +38,7 @@ export default () => {
       {
         id: Math.floor(Math.random() * 10000),
         text,
+        done: false
       }
     ]
 
@@ -50,15 +55,13 @@ export default () => {
         Todo List
       </h1>
         <div className="todos__list">
-          {todos
-            .map(todo => (
-              <Todo
-                todo={todo}
-                key={todo.id}
-                setDone={setDone}
-              />
-            ))
-          }
+          {todos.map(todo => (
+            <Todo
+              todo={todo}
+              key={todo.id}
+              setDone={setDone}
+            />
+          ))}
         </div>
         {isAsideShown && (
           <AddTodo
@@ -68,7 +71,7 @@ export default () => {
         )}
         <button
           type="button"
-          className="button button-primary"
+          className="button button--primary"
           onClick={() => setIsAsideShown(!isAsideShown)}
         >
           Přidat
