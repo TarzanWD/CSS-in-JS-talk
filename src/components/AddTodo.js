@@ -20,7 +20,7 @@ export default ({ addTodo, closeAside }) => {
           type="button"
           className={classNames({
             'button': true,
-            'button--primary': true,
+            'button--primary': text.length !== 0,
             'button--disabled': text.length === 0
           })}
           disabled={text.length === 0}

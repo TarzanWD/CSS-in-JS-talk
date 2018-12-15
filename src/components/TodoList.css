@@ -11,7 +11,7 @@
 
 .todos__heading {
   font-weight: 700;
-  color: #368F8B;
-  font-size: 3rem;
+  color: var(--primary);
+  font-size: var(--font-size-subtitle);
 }
 

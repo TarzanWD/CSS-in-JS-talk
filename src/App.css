@@ -1,35 +1,49 @@
+:root {
+  --font: 'Poppins', sans-serif;
+  --primary: #368F8B;
+  --primary-darken: #246A73;
+  --secondary: #160F29;
+  --ternary: #eee;
+  --black: #222;
+  --white: #fff;
+  --border-radius: 0.25rem;
+  --border-width: 0.05rem;
+  --font-size-title: calc(2rem + 2vw);
+  --font-size-subtitle: calc(1.25rem + 2vw);
+}
+
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: #efefef;
+  font-family: var(--font);
+  color: var(--white);
 }
 
 .container {
   width: 100vw;
   height: 100vh;
-  background: #160F29;
+  background: var(--secondary);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .button {
-  background: #fff;
+  background: var(--white);
   padding: 0.33rem 1rem;
-  border: 0.05rem solid #eee;
-  border-radius: 0.25rem;
-  color: #222;
+  border: 0.05rem solid var(--ternary);
+  border-radius: var(--border-radius);
+  color: var(--black);
   cursor: pointer;
 }
 
 .button--primary {
-  background: #368F8B;
-  color: #eee;
+  background: var(--primary);
+  color: var(--ternary);
 }
 
 .button--primary:hover {
-  background: #246A73;
-  color: #eee;
+  background: var(--primary-darken);
+  color: var(--ternary);
 }
 
 .button--disabled {

@@ -6,13 +6,13 @@
   width: 30vw;
   display: flex;
   flex-flow: column nowrap;
-  background: #eee;
-  border-left: 0.05rem solid #368F8B;
+  background: var(--ternary);
+  border-left: var(--border-width) solid var(--primary);
   padding: 1rem;
 }
 
 .add-todo__heading {
-  color: #368F8B;
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -21,10 +21,16 @@
   background: transparent;
   border: 0;
   padding: 0.5rem;
-  border-bottom: 0.05rem solid #368F8B;
+  border-bottom: var(--border-width) solid var(--primary);
   margin-bottom: 1rem;
 }
 
 .add-todo__input-group button {
   margin-right: 1rem;
+}
+
+@media (max-width: 40rem) {
+  .add-todo {
+    width: 90vw;
+  }
 }

@@ -13,7 +13,7 @@ export default ({ todo, setDone }) => (
       type="button"
       className={classNames({
         'button': true,
-        'button--primary': true,
+        'button--primary': !todo.done,
         'button--disabled': todo.done
       })}
       onClick={() => setDone(todo.id)}
