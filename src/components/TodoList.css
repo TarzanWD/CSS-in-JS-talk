@@ -1,0 +1,17 @@
+.todos {
+  margin-bottom: 1rem;
+}
+
+.todos__list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  margin-bottom: 3.5rem;
+}
+
+.todos__heading {
+  font-weight: 700;
+  color: #368F8B;
+  font-size: 3rem;
+}
+

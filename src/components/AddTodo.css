@@ -1,0 +1,30 @@
+.add-todo {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30vw;
+  display: flex;
+  flex-flow: column nowrap;
+  background: #eee;
+  border-left: 0.05rem solid #368F8B;
+  padding: 1rem;
+}
+
+.add-todo__heading {
+  color: #368F8B;
+  font-weight: 700;
+}
+
+.add-todo__input {
+  font-size: 1.05rem;
+  background: transparent;
+  border: 0;
+  padding: 0.5rem;
+  border-bottom: 0.05rem solid #368F8B;
+  margin-bottom: 1rem;
+}
+
+.add-todo__input-group button {
+  margin-right: 1rem;
+}
