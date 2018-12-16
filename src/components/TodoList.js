@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { assocPath } from 'ramda'
+import styled from 'styled-components'
 
 import Todo from './Todo'
 import AddTodo from './AddTodo'
-import './TodoList.css'
+import Button from './Button'
 
 export default () => {
   const [todos, setTodos] = useState([
@@ -48,13 +49,30 @@ export default () => {
   const closeAside = () => {
     setIsAsideShown(false)
   }
+
+  const Todos = styled.section`
+    margin-bottom: 1rem;
+  `
+
+  const TodosList = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    margin-bottom: 3.5rem;
+  `
+
+  const TodosHeading = styled.h1`
+    font-weight: 700;
+    color: ${props => props.theme.primary};
+    font-size: ${props => props.theme.fontSizeSubtitle};
+  `
   
   return (
-    <section className="todos">
-      <h1 className="todos__heading">
+    <Todos>
+      <TodosHeading>
         Todo List
-      </h1>
-        <div className="todos__list">
+      </TodosHeading>
+        <TodosList>
           {todos.map(todo => (
             <Todo
               todo={todo}
@@ -62,20 +80,19 @@ export default () => {
               setDone={setDone}
             />
           ))}
-        </div>
+        </TodosList>
         {isAsideShown && (
           <AddTodo
             addTodo={addTodo}
             closeAside={closeAside}
           />
         )}
-        <button
-          type="button"
-          className="button button--primary"
+        <Button
+          primary
           onClick={() => setIsAsideShown(!isAsideShown)}
         >
           Přidat
-      </button>
-    </section>
+        </Button>
+    </Todos>
   )
 }
