@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { assocPath } from 'ramda'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import Todo from './Todo'
 import AddTodo from './AddTodo'

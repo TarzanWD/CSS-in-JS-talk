@@ -1,5 +1,7 @@
 import React from 'react'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { ThemeProvider } from 'emotion-theming'
+import { Global } from '@emotion/core'
+import styled from '@emotion/styled'
 
 import TodoList from './components/TodoList'
 
@@ -17,14 +19,6 @@ const theme = {
   fontSizeSubtitle: 'calc(1.25rem + 2vw)'
 }
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    font-family: ${props => props.theme.font};
-    color: ${props => props.theme.white};
-  }
-`
-
 const Container = styled.main`
   width: 100vw;
   height: 100vh;
@@ -38,7 +32,13 @@ export default () => (
   <ThemeProvider theme={theme}>
     <Container>
       <TodoList />
-      <GlobalStyle />
+      <Global styles={{
+          'body': {
+            margin: 0,
+            fontFamily: theme.font,
+            color: theme.white,
+          }
+        }} />
     </Container>
   </ThemeProvider>
 )

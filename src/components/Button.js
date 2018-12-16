@@ -1,16 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
-const Button = styled.button`
-  background: ${props => props.theme.white};
-  padding: 0.33rem 1rem;
-  border: ${props => props.theme.borderWidth} solid ${props => props.theme.ternary};
-  border-radius: ${props => props.theme.borderRadius};
-  color: ${props => props.theme.black};
-  cursor: ${props => props.disabled ? 'not-allowed' : 'cursor'};
-`
-
-const PrimaryButton = styled(Button)`
+const primaryTheme = props => css`
   background: ${props => props.theme.primary};
   color: ${props => props.theme.ternary};
   &:hover {
@@ -19,12 +11,20 @@ const PrimaryButton = styled(Button)`
   }
 `
 
+const Button = styled.button`
+  background: ${props => props.theme.white};
+  padding: 0.33rem 1rem;
+  border: ${props => props.theme.borderWidth} solid ${props => props.theme.ternary};
+  border-radius: ${props => props.theme.borderRadius};
+  color: ${props => props.theme.black};
+  cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+`
 
 export default ({ primary, disabled, children, onClick }) => (
   <Button
     type="button"
     disabled={disabled}
-    as={primary ? PrimaryButton : Button}
+    css={[ primaryTheme ]}
     onClick={() => onClick()}
   >
     {children}
